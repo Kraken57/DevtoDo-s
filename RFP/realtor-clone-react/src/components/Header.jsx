@@ -1,9 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 {
   /**useLocation is used to get the router address and make logic accordingly  */
 }
 
 export default function Header() {
+  const navigate = useNavigate();
   const location = useLocation();
   {
     /*function to check what is the current route and match it and make the changes to the header  */
@@ -25,6 +26,7 @@ export default function Header() {
             src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
             alt="logo"
             className="h-5 cursor-pointer"
+            onClick={() => navigate("/")}
           />
         </div>
         <div>
@@ -33,6 +35,7 @@ export default function Header() {
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                 pathMatchRoute("/") && "text-black border-b-red-500"
               }`}
+              onClick={() => navigate("/")}
             >
               Home
             </li>
@@ -40,6 +43,7 @@ export default function Header() {
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                 pathMatchRoute("/offers") && "text-black border-b-red-500"
               }`}
+              onClick={() => navigate("/offers")}
             >
               Offers
             </li>
@@ -48,6 +52,7 @@ export default function Header() {
                 pathMatchRoute("/sign-incursor-pointer ") &&
                 "text-black border-b-red-500"
               }`}
+              onClick={() => navigate("/sign-in")}
             >
               Sign In
             </li>
